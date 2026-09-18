@@ -10,7 +10,9 @@ const cors = require('cors');
 const app = express();
 app.use(cors()); // allows your webpage (running on a different port) to talk to this server
 
-const PORT = 3001;
+// Render (and most hosts) assign their own port via this environment variable.
+// Locally, that variable doesn't exist, so we fall back to 3001 as before.
+const PORT = process.env.PORT || 3001;
 
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
